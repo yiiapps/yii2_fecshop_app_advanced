@@ -10,6 +10,6 @@
 return [
     'fecshoplang' => [
         // 默认语言。
-        'defaultLangCode' => 'en',
+        'defaultLangCode' => 'cn',
     ],
 ];
