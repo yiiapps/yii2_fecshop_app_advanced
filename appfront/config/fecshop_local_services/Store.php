@@ -1,9 +1,6 @@
 <?php
-   return [
-   'store' => [
-        'class'  => 'fecshop\services\Store',
-        
-
+return [
+    'store' => [
+        'class' => 'fecshop\services\Store',
     ],
-
 ];
