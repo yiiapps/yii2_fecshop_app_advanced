@@ -8,33 +8,33 @@
 return [
     'admin' => [
         // 子服务
-        'childService' => [
-            'urlKey' => [
-                'urlKeyTags' => [
-                    'blog_article' 								=> 'Blog-Article',
-                ],
-            ],
-/*
-            'menu' => [
-                'menuConfig' => [
-                    'blog' => [
-                        'label' => 'Blog',
-                        'child' => [
-                            'article' => [
-                                'label' => 'Article',
-                                'child' => [
-                                    'article_manager' => [
-                                        'label' => 'Manager Article',
-                                        'url_key' => '/blog/article/manager',
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-
-                ],
-            ],
-*/            
+        // 'childService' => [
+        //     'urlKey' => [
+        //         'urlKeyTags' => [
+        //             'blog_article'                                 => 'Blog-Article',
+        //         ],
+        //     ],
+        /*
+        'menu' => [
+        'menuConfig' => [
+        'blog' => [
+        'label' => 'Blog',
+        'child' => [
+        'article' => [
+        'label' => 'Article',
+        'child' => [
+        'article_manager' => [
+        'label' => 'Manager Article',
+        'url_key' => '/blog/article/manager',
         ],
+        ],
+        ],
+        ],
+        ],
+
+        ],
+        ],
+         */
+        // ],
     ],
 ];
