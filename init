@@ -19,19 +19,21 @@ extension_loaded('openssl') || $noLoadExtension[] = 'openssl';
 extension_loaded('bcmath') || $noLoadExtension[] = 'bcmath';
 extension_loaded('curl') || $noLoadExtension[] = 'curl';
 extension_loaded('gd') || $noLoadExtension[] = 'gd';
-extension_loaded('iconv') || $noLoadExtension[] = 'iconv';
-extension_loaded('hash') || $noLoadExtension[] = 'hash';
 extension_loaded('mbstring') || $noLoadExtension[] = 'mbstring';
-extension_loaded('mcrypt') || $noLoadExtension[] = 'mcrypt';
 extension_loaded('mysqli') || $noLoadExtension[] = 'mysqli';
-extension_loaded('OAuth') || $noLoadExtension[] = 'OAuth';
 extension_loaded('pcre') || $noLoadExtension[] = 'pcre';
 extension_loaded('PDO') || $noLoadExtension[] = 'PDO';
 extension_loaded('pdo_mysql') || $noLoadExtension[] = 'pdo_mysql';
 extension_loaded('pdo_sqlite') || $noLoadExtension[] = 'pdo_sqlite';
 extension_loaded('Reflection') || $noLoadExtension[] = 'Reflection';
-extension_loaded('soap') || $noLoadExtension[] = 'soap';
-extension_loaded('imap') || $noLoadExtension[] = 'imap';
+// extension_loaded('imap') || $noLoadExtension[] = 'imap';
+
+// extension_loaded('soap') || $noLoadExtension[] = 'soap';
+//extension_loaded('iconv') || $noLoadExtension[] = 'iconv';
+//extension_loaded('hash') || $noLoadExtension[] = 'hash';
+//extension_loaded('mcrypt') || $noLoadExtension[] = 'mcrypt';
+//extension_loaded('OAuth') || $noLoadExtension[] = 'OAuth';
+
 if (!empty($noLoadExtension)) {
     $noLoadExtensionStr = implode(',', $noLoadExtension);
     die("PHP extension [ $noLoadExtensionStr ]  is required by Fecshop. you must install this php extension \n");
@@ -50,8 +52,8 @@ if (empty($params['env']) || $params['env'] === '1') {
     foreach ($envNames as $i => $name) {
         echo "  [$i] $name\n";
     }
-    echo "\n  Your choice [0-" . (count($envs) - 1) . ', or "q" to quit] ';
-    $answer = trim(fgets(STDIN));
+    echo "\n  Your choice 0" ;
+    $answer = "0"; //trim(fgets(STDIN));
 
     if (!ctype_digit($answer) || !in_array($answer, range(0, count($envs) - 1))) {
         echo "\n  Quit initialization.\n";
@@ -74,8 +76,8 @@ if (!in_array($envName, $envNames)) {
 $env = $envs[$envName];
 
 if (empty($params['env'])) {
-    echo "\n  Initialize the application under '{$envNames[$answer]}' environment? [yes|no] ";
-    $answer = trim(fgets(STDIN));
+    echo "\n  Initialize the application under '{$envNames[$answer]}' environment? yes!";  // [yes|no]
+    $answer = 'yes';  //trim(fgets(STDIN));
     if (strncasecmp($answer, 'y', 1)) {
         echo "\n  Quit initialization.\n";
         exit(0);
@@ -197,6 +199,9 @@ function setWritable($root, $paths)
             @chmod("$root/$writable", 0777);
         } else {
             if (substr($writable,(strlen($writable)-4)) == '.xml') {
+                echo "      chmod 0777 $writable\n";
+                @chmod("$root/$writable", 0777);
+            } else if ($writable == 'common/config/main-local.php'){
                 echo "      chmod 0777 $writable\n";
                 @chmod("$root/$writable", 0777);
             } else {
