@@ -1,3 +1,7 @@
+composer update
+./init
+
+--------------
 <p>
   <a href="http://fecshop.appfront.fancyecommerce.com/">
     <img src="http://img.appfront.fancyecommerce.com/custom/logo.png">
